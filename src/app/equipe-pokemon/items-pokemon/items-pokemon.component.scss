@@ -1,0 +1,195 @@
+.container-objet {
+    display: flex;
+    align-items: center;
+    width: 55vw;
+    margin-left: 50px;
+    column-gap: 60px;
+
+    .menu-objet {
+        display: flex;
+        flex-direction: column;
+        padding-top: 130px;
+        row-gap: 10px;
+        height: 500px;
+
+        p {
+            font-size: 40px;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            padding: 5px;
+        }
+
+        p::after {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: black;
+            left: 0;
+            top: 0;
+            transform: translateX(-101%);
+            transition: transform 0.5s ease-in-out;
+            z-index: -1;
+
+
+        }
+
+        p:hover {
+            color: white;
+        }
+
+        p:hover::after {
+            transform: translateX(0);
+
+        }
+
+
+    }
+
+    .trait {
+        height: 300px;
+        width: 1px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 1) 50%, rgba(255, 255, 255, 0) 100%);
+
+    }
+
+    .container-consommables {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+        width: 400px;
+        padding: 10px;
+
+
+        .potion,
+        .super,
+        .hyper,
+        .bonbon {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .potion:hover,
+        .super:hover,
+        .hyper:hover,
+        .bonbon:hover {
+            box-shadow: 0px 1px 0px 2px black;
+            transition: all 0.5s ease-in-out;
+
+
+        }
+
+
+    }
+
+    .container-pierre {
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+        width: 400px;
+        padding: 10px;
+
+        .eau,
+        .feu,
+        .foudre,
+        .lune,
+        .plante,
+        .soleil {
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.5s ease-in-out;
+
+        }
+
+        .eau:hover,
+        .feu:hover,
+        .foudre:hover,
+        .lune:hover,
+        .plante:hover,
+        .soleil:hover {
+            box-shadow: 0px 1px 0px 2px black;
+            transition: all 0.5s ease-in-out;
+            
+            
+        }
+
+
+
+
+    }
+
+    .container-vente {
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+        width: 500px;
+        padding: 10px;
+
+        
+        .champi,
+        .pepite,
+        .perle {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            row-gap: 10px;
+            padding: 10px;
+            transition: all 0.5s ease-in-out;
+
+            
+        }
+
+        .champi:hover,
+        .pepite:hover,
+        .perle:hover {
+            box-shadow: 0px 1px 0px 2px black;
+            transition: all 0.5s ease-in-out;
+            
+
+
+            
+        }
+        
+
+
+    }
+
+    .images {
+        width: 70px;
+        height: 70px;
+        cursor: pointer;
+
+        img {
+            width: 100%;
+        }
+
+
+    }
+
+
+
+
+}

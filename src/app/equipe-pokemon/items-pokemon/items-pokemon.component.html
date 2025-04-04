@@ -1,0 +1,118 @@
+<div class="container-objet">
+
+    <div class="menu-objet">
+        <p (click)="showConsommables()">Consommables</p>
+        <p (click)="showPierre()">Pierres</p>
+        <p (click)="showVente()">Ventes</p>
+    </div>
+
+    <div class="trait"></div>
+
+    @if(isConsommable){
+    <div class="container-consommables">
+
+        <div class="potion">
+
+            <div class="images">
+                <img [src]="potion">
+            </div>
+
+            <p>Potion</p>
+
+        </div>
+
+        <div class="super">
+
+            <div class="images">
+                <img [src]="superPotion">
+            </div>
+
+            <p>Super potion</p>
+
+        </div>
+
+        <div class="hyper">
+
+            <div class="images">
+                <img [src]="hyperPotion">
+            </div>
+
+            <p>Hyper potion</p>
+
+        </div>
+
+        <div class="bonbon">
+
+            <div class="images">
+                <img [src]="bonbon">
+            </div>
+
+            <p>Super Bonbon</p>
+
+        </div>
+    </div>
+
+    }
+
+
+    @if(isPierre){
+    <div class="container-pierre">
+        <div class="eau">
+            <div class="images">
+                <img [src]="eau">
+            </div>
+            <p>Pierre Eau</p>
+        </div>
+        <div class="feu">
+            <div class="images">
+                <img [src]="feu">
+            </div>
+            <p>Pierre Feu</p>
+        </div>
+        <div class="foudre">
+            <div class="images">
+                <img [src]="foudre">
+            </div>
+            <p>Pierre Foudre</p>
+        </div>
+
+        <div class="plante">
+            <div class="images">
+                <img [src]="plante">
+            </div>
+            <p>Pierre Plante</p>
+        </div>
+    </div>
+    }
+
+
+
+    @if(isVente){
+    <div class="container-vente">
+
+        <div class="champi">
+            <div class="images">
+                <img [src]="champi">
+            </div>
+            <p>Gros Champignon</p>
+        </div>
+        <div class="pepite">
+            <div class="images">
+                <img [src]="pepite">
+            </div>
+            <p>Pepite</p>
+        </div>
+        <div class="perle">
+            <div class="images">
+                <img [src]="perle">
+            </div>
+            <p>Perle</p>
+        </div>
+
+
+    </div>
+    }
+
+
+
+</div>

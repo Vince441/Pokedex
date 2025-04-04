@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    height: 100%;
+    overflow-x: hidden;
+
+  
+}
+
+
+app-root {
+    width: 100vw;
+    min-height: 100vh; /* L'application ne doit pas dépasser la hauteur de la fenêtre */
+    display: flex;
+    flex-direction: column;
+    
+}

@@ -1,0 +1,58 @@
+<div class="pokedex-container">
+
+
+
+
+    <h1>Liste des Pokemons</h1>
+    <div class="filter-type-gen">
+        <div class="type">
+            <p>Select your type :</p>
+            <select (change)="getPokemonByType($event)">
+                <option></option>
+                @for(type of typeList; track $index){
+                <option>{{ type.name }}</option>
+                }
+            </select>
+        </div>
+
+        <div class="gen">
+            <p>Select your generation :</p>
+            <select (change)="getPokemonByGen($event)">
+                <option></option>
+                @for(gen of typeGen; track $index){
+                <option>{{ gen.name }}</option>
+                }
+            </select>
+        </div>
+
+    </div>
+
+
+    <div class="container">
+        @for (pokemon of listPokemon; track $index) {
+
+        <a [routerLink]="'./' + pokemon.id" class="card">
+            <p>N°000{{ pokemon.id }}</p>
+            <img [src]="pokemon.sprites.other.home.front_default" alt="{{ pokemon.name }} ">
+            <div class="types-details">
+                <div class="order-name">
+                    <p>{{ pokemon.name }}</p>
+                </div>
+                <div class="typePokemon">
+                    @for(elem of pokemon.types; track $index){
+                    <p>{{ elem.type.name }}</p>
+                    }
+                </div>
+            </div>
+        </a>
+        }
+    </div>
+    <mat-paginator class="paginator" [length]="1302" [pageSize]="20" [pageSizeOptions]="[5, 10, 25, 100]"
+        (page)="onPageChanged($event)">
+
+        aria-label="Select page"></mat-paginator>
+</div>
+
+
+
+

@@ -1,0 +1,103 @@
+<div class="equipe-container">
+@if(isModalOpen){
+  <div class="modal-user">
+    <div class="form-container-pseudo">
+      <div class="text-username">
+        <label for="userName">Nom du Joueur:</label>
+      </div>
+
+      <div class="input-username">
+        <input id="userName" [(ngModel)]="userName" type="text" placeholder="Entrez le nom du Joueur" />
+      </div>
+      <button (click)="getModal()" *ngIf="isModalOpen ? true : false"> Valider</button>
+    </div>
+    <div class="fondFlou"></div>
+    <div class="form-container-img">
+      <img [src]="imgPokeball">
+    </div>
+  </div>
+}
+
+  <div class="container-battle">
+    <div class="imgpixel-battle">
+      <div class="menu-pokemon">
+
+        <button (click)="getModal()">Ajouter votre nom</button>
+
+        <h2>Équipe de {{ userName}}</h2>
+        <div class="menu-fond">
+          <a [routerLink]="'/pokedex'">Pokedex</a>
+
+          <p (click)="getShowPokemon()">Pokemon</p>
+
+          <p (click)="getShowItem()">Items</p>
+          <p>Save</p>
+          <p>Option</p>
+        </div>
+      </div>
+      @if(showItem){
+      <app-items-pokemon></app-items-pokemon>
+      }
+      @if(!showPokemon){
+      <div class="mes-pokemon-container">
+
+        <!-- *ngIf="showPokemon ? false : true" -->
+
+        @for(pokemon of equipe; track $index) {
+        <div class="equipe-pokemon">
+          <div class="img-nom-hp-pokemon">
+            <div class="image-pokemon">
+              <a [routerLink]="'/pokedex/' + pokemon.id">
+              <img [src]="pokemon.sprites.other.showdown.front_default" alt="{{ pokemon.name }}">
+            </a>
+            </div>
+            <div class="pokemon-stats-equipe">
+              <div class="nom-pokemon">
+                <p>{{ pokemon.name }}</p>
+
+                <div class="barre-de-vie">
+                  <p>PV :</p>
+                  <div class="int-barredevie"></div>
+                </div>
+                @for(elem of pokemon.stats; track $index) {
+                <div class="pokemon-elem">
+                  @if($index === 0){
+                  <p>{{ elem.base_stat }} / {{ elem.base_stat }} </p>
+                  }
+                </div>
+                }
+              </div>
+            </div>
+          </div>
+          <div class="atk-def">
+            @for(elem of pokemon.stats; track $index) {
+            @if($index === 1){
+
+            <div class="atk">
+              <div class="epee">
+                <img [src]="epee" alt="epee">
+              </div>
+              <p>{{ elem.base_stat }}</p>
+
+            </div>
+
+            }}
+            @for(elem of pokemon.stats; track $index) {
+            @if($index === 2){
+
+            <div class="def">
+              <div class="boubou">
+                <img [src]="bouclier" alt="defense">
+              </div>
+              <p> {{ elem.base_stat }}</p>
+            </div>
+            }
+            }
+          </div>
+
+        </div>
+        }
+      </div>
+      }
+    </div>
+  </div>

@@ -1,0 +1,166 @@
+<div class="container-pokemondetails">
+    <div class="test-animation2"></div>
+
+
+    <div class="up"><a (click)="scrollToElement()">UP</a></div>
+
+    @if(downGif){
+    <div class="giffed" [ngClass]="{'giffed' : downGif}"><img [src]="imageRondoudou">
+    </div>
+    }
+
+    @for(pokemon of listPokemon; track $index){
+
+    <div class="button-add">
+
+        <p>Ajoute ton pokemon</p>
+        
+        <div class="imgAdd">
+            <img (click)="addPokemon(pokemon)" [src]="imagePlus">
+        </div>
+
+    </div>
+
+    <div class="name-imgpixel">
+        <div class="imgpixel">
+            <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}">
+        </div>
+
+        <h1 [ngStyle]="{ 'color': getColorForType(listPokemon[0].types[0].type.name) }">
+            {{ listPokemon[0].name }}
+        </h1>
+    </div>
+
+    <div class="pokemontypes">
+        @for(elem of pokemon.types; track $index){
+        <p [ngStyle]="{ 'color': getColorForType(elem.type.name) }">[ {{ elem.type.name }} ]</p>
+        }
+    </div>
+
+    <div class="pokemonAbilities">
+        
+        <div [ngStyle]="{ 'background-color': getColorForType(listPokemon[0].types[0].type.name) }" class="trait"></div>
+        
+        <div class="elemabilities">
+            
+            <p>Abilities :</p>
+            
+            <div class="abilities">
+                @for(elem of pokemon.abilities; track $index){
+                <p>{{ elem.ability.name }}</p>
+                }
+            </div>
+
+        </div>
+    </div>
+
+    <div class="pokemonSound">
+
+        <div class="sound1">
+            <p>Legacy sound</p>
+            <audio [src]="pokemon.cries.legacy" controls></audio>
+        </div>
+
+        <div class="sound2">
+            <p>Latest sound</p>
+            <audio [src]="pokemon.cries.latest" controls></audio>
+        </div>
+
+    </div>
+
+    <div class="imgPokemon">
+
+        <div class="pokemon-flex">
+            @if(normalIsVisible){
+            <div class="normal">
+                <h1>Normal</h1>
+                <img [src]="pokemon.sprites.other.home.front_default" alt="{{ pokemon.name }} ">
+            </div>
+            }
+            @if(shinyIsVisible){
+            <div class="normal">
+                <h1>Shiny</h1>
+                <img [src]="pokemon.sprites.other.home.front_shiny" alt="{{ pokemon.name }} ">
+            </div>
+            }
+        </div>
+
+        <div class="toogle-container">
+            <div [ngStyle]="normalIsVisible ?  {'opacity' : '0'} : {'opacity' :'1'}  ">
+                <p>{{ normalIsVisible ? 'Shiny' : 'Normal' }}</p>
+            </div>
+            <mat-slide-toggle class="toogle" (click)="isVisibleImg()"></mat-slide-toggle>
+            <div [ngStyle]="shinyIsVisible ?  {'opacity' : '0'} : {'opacity' :'1'}  ">
+                <p>{{ shinyIsVisible ? 'Normal' : 'Shiny' }}</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="pokemon-description">
+
+        <div class="desc">
+            <h1>Description</h1>
+            <p>{{ description }}</p>
+        </div>
+
+    </div>
+
+    <div class="pokemonStats">
+
+        <h1 [ngStyle]="{ 'color': getColorForType(listPokemon[0].types[0].type.name) }">Basic Statistics</h1>
+        
+        <div class="container_stats">
+            @for(elem of pokemon.stats; track $index) {
+            
+                <div class="pokemon-circle">
+                <p>{{ elem.base_stat }} </p>
+                <p>{{ elem.stat.name }}</p>
+            </div>
+            }
+        </div>
+
+    </div>
+
+    <div class="pokemon-move" #upToup>
+        
+        <h1>Moves</h1>
+        
+        <div class="button-hidden">
+            <button (click)="getMoveDisable()">More Details here</button>
+        </div>
+        
+        @if(isMoveDisable){
+        <div [ngClass]="{'ma-classe': estClick}" class="container-move">
+            
+            @for(moveDetail of movesDetails; track $index){
+            <div class="cardMove">
+                
+                <p [ngStyle]="{ 'background-color': getColorForType(listPokemon[0].types[0].type.name) }">{{
+                    moveDetail.name }}</p>
+
+                <div class="stat">
+                    <p><span>Power :</span> {{ moveDetail.power }}</p>
+                    <p><span>Accuracy :</span> {{ moveDetail.accuracy }}</p>
+                    <p><span>PP :</span> {{ moveDetail.pp }}</p>
+                    <p><span>Damage class :</span> {{ moveDetail.damage_class.name }}</p>
+                </div>
+
+                <div class="trait"></div>
+
+                <div class="stat-description">
+                    @for(elem of moveDetail.effect_entries; track $index){
+                    <span>Description : </span>
+                    <p>{{ elem.effect }}</p>
+                    }
+                </div>
+                
+            </div>
+            }
+
+        </div>
+        }
+
+    </div>
+    }
+</div>

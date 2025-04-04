@@ -1,0 +1,150 @@
+@use '@angular/material' as mat;
+
+
+.pokedex-container {
+    background-color: #4683b415;
+
+
+    .filter-type-gen {
+        padding: 30px;
+        justify-content: center;
+        display: flex;
+        column-gap: 20px;
+
+        .type {
+            display: flex;
+            gap: 10px
+        }
+
+        .gen {
+            display: flex;
+            gap: 10px
+        }
+    }
+
+
+
+    h1 {
+
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 100px;
+        font-family: "Oswald", sans-serif;
+        text-shadow: 30px 20px 0px rgba(0, 0, 0, 0.116);
+        padding: 10px;
+        text-align: center;
+        letter-spacing: -5px;
+        transform: scaleY(1.1);
+    }
+
+   
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 20px;
+        row-gap: 30px;
+        justify-content: center;
+        font-family: "Oswald", sans-serif;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding-bottom: 80px;
+        padding: 30px;
+
+img:nth-child(1){
+    position: absolute;
+    top: 10%;
+    left: 35%;
+}
+
+
+        p {
+            color: rgba(0, 0, 0, 0.473);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .card {
+            border: 1px solid rgba(0, 0, 0, 0.226);
+            box-shadow: 0px 4px 1px 0px black;
+            width: 200px;
+            text-align: center;
+            padding: 10px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            background-color: white;
+            transition: all 0.5s ease-in-out;
+
+            &:hover {
+                transform: scale(1.1);
+                transition: all 0.5s ease-in-out;
+            }
+
+            .order-name {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                column-gap: 10px;
+                padding: 10px;
+
+
+                p {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: black;
+                }
+            }
+
+
+            .types-details {
+                display: flex;
+                flex-direction: column;
+
+
+                .typePokemon {
+                    display: flex;
+                    justify-content: center;
+                    column-gap: 5px;
+                    background-color: black;
+
+                    p {
+                        font-size: 10px;
+                        color: white;
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .paginator {
+        padding-right: 50px;
+        @include mat.paginator-overrides((container-text-color: black,
+                container-background-color: white,
+            ));
+    }
+
+select{
+    width: 100px;
+    box-shadow: 0px 1px 0px 0px black;
+
+}
+option {
+    text-transform: uppercase;
+    
+}
+
+
+
+
+}
+
+
+
+
+

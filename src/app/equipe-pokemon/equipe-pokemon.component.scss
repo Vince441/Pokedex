@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+
+.equipe-container {
+
+    height: 80vh;
+    position: relative;
+
+    .modal-user {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        animation: modal 0.5s ease-in-out;
+
+
+        @keyframes modal {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .fondFlou {
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.11);
+            backdrop-filter: blur(20px);
+            z-index: 2;
+        }
+
+
+
+        .form-container-pseudo {
+            position: relative;
+            z-index: 2;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9;
+            color: Black;
+            row-gap: 20px;
+
+            #userName {
+                width: 130px;
+            }
+
+            button {
+                width: 200px;
+                height: 30px;
+                background-color: black;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+
+
+            .input-username {
+
+
+                width: 200px;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0px 1px 0px 0px black;
+
+
+                #userName {
+
+                    width: 100%;
+                    height: 30px;
+                    padding: 5px;
+                }
+
+
+            }
+
+
+        }
+
+        .form-container-img {
+            width: 50%;
+            background-color: #4683b477;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 75%;
+            }
+
+        }
+
+
+
+    }
+
+    .container-battle {
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .imgpixel-battle {
+            width: 100%;
+            display: flex;
+
+
+            .menu-pokemon {
+
+                font-size: 40px;
+                text-transform: uppercase;
+                font-weight: bold;
+                margin-left: 50px;
+                ;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+
+                button {
+                    background-color: black;
+                    border: none;
+                    color: white;
+                    padding: 5px;
+                    cursor: pointer;
+                }
+
+                h2 {
+                    font-size: 15px;
+                    padding: 10px;
+                }
+
+                .menu-fond {
+                    padding: 30px;
+                    border: 1px solid black;
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 5px;
+                    box-shadow: 1px 5px 0px 0px black;
+
+
+                    a {
+                        color: black;
+                        text-decoration: none;
+                        font-size: 30px;
+                        position: relative;
+                        overflow: hidden;
+                        z-index: 1;
+                        padding: 5px;
+                    }
+
+                    a:after {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 100%;
+                        transform: translateX(-101%);
+                        background-color: black;
+                        transition: transform 0.5s ease-in-out;
+                        z-index: -1;
+
+                    }
+
+                    a:hover {
+                        color: white;
+
+                    }
+
+                    a:hover:after {
+                        transform: translateX(0);
+                    }
+
+
+                    p {
+                        cursor: pointer;
+                        font-size: 30px;
+                        position: relative;
+                        overflow: hidden;
+                        padding: 5px;
+                    }
+
+                    p:after {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 100%;
+                        transform: translateX(-101%);
+                        background-color: black;
+                        transition: transform 0.5s ease-in-out;
+                        z-index: -1;
+                    }
+
+                    p:hover {
+                        color: white;
+                    }
+
+                    p:hover:after {
+                        transform: translateX(0);
+                    }
+                }
+            }
+
+
+
+            .mes-pokemon-container {
+                margin-top: 74px;
+                margin-left: 80px;
+                width: 400px;
+                padding: 20px;
+                box-shadow: 1px 5px 0px 0px black;
+                border: 1px solid black;
+
+                .equipe-pokemon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    column-gap: 20px;
+
+
+                    .img-nom-hp-pokemon {
+
+                        display: flex;
+                        align-items: center;
+
+                        .image-pokemon {
+                            width: 40px;
+                            height: 40px;
+
+                            img {
+                                width: 100%;
+                            }
+                        }
+
+                        .nom-pokemon {
+                            padding-left: 10px;
+
+                            p {
+                                text-align: right;
+                                font-family: "Press Start 2P", system-ui;
+                                padding: 5px;
+                                font-size: 13px;
+
+                            }
+
+
+
+                            p::first-letter {
+                                text-transform: uppercase;
+                            }
+
+                            .barre-de-vie {
+                                display: flex;
+
+                                .int-barredevie {
+                                    height: 20px;
+                                    width: 150px;
+                                    background-color: green;
+                                    border-radius: 50px;
+                                    border: thick double white;
+                                }
+                            }
+                        }
+                    }
+
+
+                    .atk-def {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+
+                        .atk {
+                            display: flex;
+                            column-gap: 10px;
+
+                            .epee {
+                                width: 20px;
+                                height: 20px;
+
+                                img {
+                                    width: 100%;
+                                }
+
+                            }
+                        }
+
+                        .def {
+                            display: flex;
+                            column-gap: 10px;
+
+                            .boubou {
+
+                                width: 20px;
+                                height: 20px;
+
+                                img {
+                                    width: 100%;
+                                }
+
+                            }
+                        }
+
+                    }
+
+                }
+            }
+        }
+    }
+
+    app-items-pokemon {
+        margin-left: 20px;
+    }
+
+}
